@@ -58,7 +58,7 @@ export default function LandingPage() {
               <a className="text-[#0d141b] text-sm font-medium leading-normal" href="#">Pricing</a>
               <a className="text-[#0d141b] text-sm font-medium leading-normal" href="#">Support</a>
             </div>
-            <Link href="/create-post">
+            <Link href="/dashboard">
               <button
                 className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#1380ec] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]"
               >
@@ -85,7 +85,7 @@ export default function LandingPage() {
                       Elevate your social media presence with PostCraft. Generate engaging content effortlessly and connect with your audience like never before.
                     </h2>
                   </div>
-                  <Link href="/create-post">
+                  <Link href="/dashboard">
                     <button
                       className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#1380ec] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
                     >
@@ -190,7 +190,7 @@ export default function LandingPage() {
                 </div>
                 <div className="flex flex-1 justify-center">
                   <div className="flex justify-center">
-                    <Link href="/create-post">
+                    <Link href="/dashboard">
                       <button
                         className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#1380ec] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] grow"
                       >
