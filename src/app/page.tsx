@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
@@ -52,12 +53,7 @@ export default function LandingPage() {
             <Logo />
             <h2 className="text-[#0d141b] text-lg font-bold leading-tight tracking-[-0.015em]">PostCraft</h2>
           </div>
-          <div className="flex flex-1 justify-end gap-8">
-            <div className="flex items-center gap-9">
-              <a className="text-[#0d141b] text-sm font-medium leading-normal" href="#">Features</a>
-              <a className="text-[#0d141b] text-sm font-medium leading-normal" href="#">Pricing</a>
-              <a className="text-[#0d141b] text-sm font-medium leading-normal" href="#">Support</a>
-            </div>
+          <div className="flex flex-1 justify-end">
             <Link href="/dashboard">
               <button
                 className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#1380ec] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]"
