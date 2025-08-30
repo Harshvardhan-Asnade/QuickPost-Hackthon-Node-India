@@ -56,11 +56,11 @@ export default function LandingPage() {
     <div className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden">
       <div className="layout-container flex h-full grow flex-col">
         <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] px-10 py-3 sticky top-0 bg-slate-50/80 backdrop-blur-lg z-20">
-          <div className="flex items-center gap-4 text-[#0d141b]">
+          <div className="flex items-center gap-4 text-[#0d141b] flex-1">
             <Logo />
             <h2 className="text-[#0d141b] text-lg font-bold leading-tight tracking-[-0.015em]">QuickPost</h2>
           </div>
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground justify-center flex-1">
             <Link href="#features" className="hover:text-primary">Features</Link>
             <Link href="#testimonials" className="hover:text-primary">Testimonials</Link>
              <Link href="#faq" className="hover:text-primary">FAQ</Link>
