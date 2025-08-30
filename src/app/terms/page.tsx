@@ -36,6 +36,7 @@ export default function TermsPage() {
               <Link href="/#features" className="hover:text-primary">Features</Link>
               <Link href="/#testimonials" className="hover:text-primary">Testimonials</Link>
                <Link href="/#faq" className="hover:text-primary">FAQ</Link>
+               <Link href="/dashboard/create-post" className="hover:text-primary">Post Generator</Link>
             </nav>
             <div className="flex flex-1 justify-end">
               <Link href="/dashboard">

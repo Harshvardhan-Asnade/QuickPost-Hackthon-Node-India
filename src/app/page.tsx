@@ -80,9 +80,10 @@ export default function LandingPage() {
             <h2 className="text-[#0d141b] text-lg font-bold leading-tight tracking-[-0.015em]">QuickPost</h2>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground justify-center flex-1">
-            <Link href="#features" className="hover:text-primary">Features</Link>
-            <Link href="#testimonials" className="hover:text-primary">Testimonials</Link>
-             <Link href="#faq" className="hover:text-primary">FAQ</Link>
+            <Link href="/#features" className="hover:text-primary">Features</Link>
+            <Link href="/#testimonials" className="hover:text-primary">Testimonials</Link>
+             <Link href="/#faq" className="hover:text-primary">FAQ</Link>
+             <Link href="/dashboard/create-post" className="hover:text-primary">Post Generator</Link>
           </nav>
           <div className="flex flex-1 justify-end">
             <Link href="/dashboard">
