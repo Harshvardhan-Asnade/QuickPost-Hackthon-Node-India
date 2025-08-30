@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import { Noto_Sans, Plus_Jakarta_Sans } from "next/font/google";
+import { Caveat } from "next/font/google";
 import "./globals.css";
 
-const noto_sans = Noto_Sans({
+const caveat = Caveat({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '700', '900'],
+  weight: ['400', '500', '700'],
 });
 
-const plus_jakarta_sans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '500', '700', '800'],
-});
 
 export const metadata: Metadata = {
   title: "QuickPost",
@@ -26,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${plus_jakarta_sans.className} ${noto_sans.className}`}>{children}</body>
+      <body className={`${caveat.className}`}>{children}</body>
     </html>
   );
 }

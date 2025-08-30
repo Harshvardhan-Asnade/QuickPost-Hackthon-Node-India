@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', '"Noto Sans"', 'sans-serif'],
+        sans: ['"Caveat"', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
