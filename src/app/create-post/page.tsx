@@ -1,12 +1,46 @@
 
+'use client';
+
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
-import { Image as ImageIcon, Video } from "lucide-react"
+import { Image as ImageIcon, Video, Wand2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { Input } from "@/components/ui/input"
+
+const formSchema = z.object({
+  platform: z.enum(['instagram', 'x', 'linkedin', 'facebook', 'tiktok', 'pinterest']),
+  postType: z.enum(['promo', 'announcement', 'quote', 'story', 'meme', 'question']),
+  tone: z.enum(['friendly', 'professional', 'funny', 'inspirational', 'persuasive']),
+  keywords: z.string().min(1, 'Keywords are required.'),
+  length: z.enum(['short', 'medium', 'long']),
+  count: z.coerce.number().int().min(1).max(10).optional().default(4),
+});
+
+export type PostGenerationRequest = z.infer<typeof formSchema>;
 
 const Logo = () => (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-6">
@@ -24,6 +58,24 @@ const Logo = () => (
   );
 
 export default function CreatePostPage() {
+
+  const form = useForm<PostGenerationRequest>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      platform: 'x',
+      postType: 'promo',
+      tone: 'friendly',
+      keywords: '',
+      length: 'medium',
+      count: 4,
+    },
+  });
+
+  function onSubmit(values: PostGenerationRequest) {
+    console.log(values);
+  }
+
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <header className="flex items-center justify-between h-16 px-8 border-b">
@@ -53,25 +105,157 @@ export default function CreatePostPage() {
       <main className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
         <div className="space-y-6">
           <h1 className="text-3xl font-bold">Create a New Post</h1>
-          <div className="space-y-2">
-            <Textarea
-              placeholder="What's on your mind?"
-              className="min-h-[150px] text-base"
-            />
-            <div className="flex justify-between items-center">
+          
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <FormField
+                  control={form.control}
+                  name="platform"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Platform</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a platform" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="instagram">Instagram</SelectItem>
+                          <SelectItem value="x">X (Twitter)</SelectItem>
+                          <SelectItem value="linkedin">LinkedIn</SelectItem>
+                          <SelectItem value="facebook">Facebook</SelectItem>
+                          <SelectItem value="tiktok">TikTok</SelectItem>
+                          <SelectItem value="pinterest">Pinterest</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="postType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Post Type</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a post type" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="promo">Promo</SelectItem>
+                          <SelectItem value="announcement">Announcement</SelectItem>
+                          <SelectItem value="quote">Quote</SelectItem>
+                          <SelectItem value="story">Story</SelectItem>
+                          <SelectItem value="meme">Meme</SelectItem>
+                          <SelectItem value="question">Question</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              <FormField
+                control={form.control}
+                name="tone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Tone</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select a tone" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="friendly">Friendly</SelectItem>
+                        <SelectItem value="professional">Professional</SelectItem>
+                        <SelectItem value="funny">Funny</SelectItem>
+                        <SelectItem value="inspirational">Inspirational</SelectItem>
+                        <SelectItem value="persuasive">Persuasive</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="keywords"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Keywords</FormLabel>
+                    <FormControl>
+                      <Input placeholder="e.g., AI, social media, marketing" {...field} />
+                    </FormControl>
+                    <FormDescription>
+                      Comma-separated keywords that should be included in the post.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <FormField
+                  control={form.control}
+                  name="length"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Length</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a length" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="short">Short</SelectItem>
+                          <SelectItem value="medium">Medium</SelectItem>
+                          <SelectItem value="long">Long</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="count"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Number of Posts</FormLabel>
+                      <FormControl>
+                        <Input type="number" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
               <div className="flex gap-4">
-                <Button variant="outline" size="sm">
+                <Button type="submit">
+                  <Wand2 className="mr-2 h-4 w-4" />
+                  Generate Posts
+                </Button>
+
+                <Button variant="outline" type="button">
                   <ImageIcon className="mr-2 h-4 w-4" />
                   Add Image
                 </Button>
-                <Button variant="outline" size="sm">
-                  <Video className="mr-2 h-4 w-4" />
-                  Add Video
-                </Button>
               </div>
-              <p className="text-sm text-muted-foreground">Character count: 0/280</p>
-            </div>
-          </div>
+
+            </form>
+          </Form>
+
         </div>
         <div className="space-y-6">
           <h2 className="text-2xl font-bold">Preview</h2>
@@ -132,3 +316,5 @@ export default function CreatePostPage() {
     </div>
   )
 }
+
+    
