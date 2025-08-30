@@ -3,6 +3,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import { Check } from 'lucide-react';
+
 
 const Logo = () => (
   <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-4">
@@ -47,28 +55,35 @@ export default function LandingPage() {
   return (
     <div className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden">
       <div className="layout-container flex h-full grow flex-col">
-        <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] px-10 py-3">
+        <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] px-10 py-3 sticky top-0 bg-slate-50/80 backdrop-blur-lg z-20">
           <div className="flex items-center gap-4 text-[#0d141b]">
             <Logo />
             <h2 className="text-[#0d141b] text-lg font-bold leading-tight tracking-[-0.015em]">QuickPost</h2>
           </div>
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
+            <Link href="#features" className="hover:text-primary">Features</Link>
+            <Link href="#pricing" className="hover:text-primary">Pricing</Link>
+            <Link href="#testimonials" className="hover:text-primary">Testimonials</Link>
+             <Link href="#faq" className="hover:text-primary">FAQ</Link>
+          </nav>
           <div className="flex flex-1 justify-end">
             <Link href="/dashboard">
               <button
-                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#1380ec] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]"
+                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-primary-foreground text-sm font-bold leading-normal tracking-[0.015em]"
               >
                 <span className="truncate">Get Started</span>
               </button>
             </Link>
           </div>
         </header>
-        <div className="px-40 flex flex-1 justify-center py-5">
+        <div className="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
           <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
             <div className="@container">
               <div className="@[480px]:p-4">
                 <div
                   className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
-                  style={{backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjKN1MKRr7E-XNgHadez98MjcyRD8RC3lF2Dz-loiyOJ8JuPiARCvo17ikVBbN2ZQU2h4VMvOuFlLYS4OE3m_y-4wWsVAVetrTnKnTuzR68PyRp6LuzNsUvg14_PXOhy3KIhepWwwm3JuyHsFAd6nNtUPLphTsuO5Fg6xycLX-DXAxFjENR6jJx0uJUgH-wcLu90x3Me4GnQMTkMD0phlJsk1AiZIXSPLxX494_ghDm27qUNjtdfPN6FdA8-OYZ8XyrUT_tkJKv4S3")'}}
+                  style={{backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://picsum.photos/1200/800")'}}
+                  data-ai-hint="social media hero"
                 >
                   <div className="flex flex-col gap-2 text-center">
                     <h1
@@ -82,7 +97,7 @@ export default function LandingPage() {
                   </div>
                   <Link href="/dashboard">
                     <button
-                      className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#1380ec] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                      className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-primary-foreground text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
                     >
                       <span className="truncate">Get Started</span>
                     </button>
@@ -90,7 +105,7 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-10 px-4 py-10 @container">
+            <div id="features" className="flex flex-col gap-10 px-4 py-10 @container scroll-mt-20">
               <div className="flex flex-col gap-4">
                 <h1
                   className="text-[#0d141b] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
@@ -102,75 +117,177 @@ export default function LandingPage() {
                   ensuring your message resonates with your audience.
                 </p>
               </div>
-              <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-0">
-                <div className="flex flex-1 gap-3 rounded-lg border border-[#cfdbe7] bg-slate-50 p-4 flex-col">
-                  <div className="text-[#0d141b]"><MagicWand /></div>
+              <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3 p-0">
+                <div className="flex flex-1 gap-3 rounded-lg border border-border bg-slate-50 p-4 flex-col">
+                  <div className="text-primary"><MagicWand /></div>
                   <div className="flex flex-col gap-1">
-                    <h2 className="text-[#0d141b] text-base font-bold leading-tight">AI-Powered Content Generation</h2>
-                    <p className="text-[#4c739a] text-sm font-normal leading-normal">
+                    <h2 className="text-foreground text-base font-bold leading-tight">AI-Powered Content Generation</h2>
+                    <p className="text-muted-foreground text-sm font-normal leading-normal">
                       Leverage our advanced AI to generate compelling social media posts tailored to your brand's voice and style.
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-1 gap-3 rounded-lg border border-[#cfdbe7] bg-slate-50 p-4 flex-col">
-                  <div className="text-[#0d141b]"><Target /></div>
+                <div className="flex flex-1 gap-3 rounded-lg border border-border bg-slate-50 p-4 flex-col">
+                  <div className="text-primary"><Target /></div>
                   <div className="flex flex-col gap-1">
-                    <h2 className="text-[#0d141b] text-base font-bold leading-tight">Targeted Audience Engagement</h2>
-                    <p className="text-[#4c739a] text-sm font-normal leading-normal">
+                    <h2 className="text-foreground text-base font-bold leading-tight">Targeted Audience Engagement</h2>
+                    <p className="text-muted-foreground text-sm font-normal leading-normal">
                       Reach the right audience with precision targeting tools that optimize your content for maximum impact.
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-1 gap-3 rounded-lg border border-[#cfdbe7] bg-slate-50 p-4 flex-col">
-                  <div className="text-[#0d141b]"><Clock /></div>
+                <div className="flex flex-1 gap-3 rounded-lg border border-border bg-slate-50 p-4 flex-col">
+                  <div className="text-primary"><Clock /></div>
                   <div className="flex flex-col gap-1">
-                    <h2 className="text-[#0d141b] text-base font-bold leading-tight">Time-Saving Efficiency</h2>
-                    <p className="text-[#4c739a] text-sm font-normal leading-normal">Streamline your social media workflow with automated scheduling and content planning features.</p>
+                    <h2 className="text-foreground text-base font-bold leading-tight">Time-Saving Efficiency</h2>
+                    <p className="text-muted-foreground text-sm font-normal leading-normal">Streamline your social media workflow with automated scheduling and content planning features.</p>
                   </div>
                 </div>
               </div>
             </div>
-            <h2 className="text-[#0d141b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">What Our Users Say</h2>
-            <div className="flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <div className="flex items-stretch p-4 gap-3">
-                <div className="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
-                  <div
-                    className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
-                    style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCIKLcwXtGHP3SqOSO4fCCvUl9FxyXFuCFAOq3Wz8D-HPW9eol7FPf5dpbKHJgK3g728ZlgKdNKQ2jRegGvHJvJYh5iBKy33nrUPhDfWsQd2l6qwY4weWb11AE_WNoRXRKLQG91rmDZfZotef_vLnn53W-XoesBLc5WnEzKXKH3MjpsQjbauFsZYbkrEwEd2w3oFqVipTJb7jYTwzfzHEwEvMdkdPa1SsAoogCI16GXVdMeyqrCze7ifJOi6FjfYJi6I8tOIipdOy_t")'}}
-                  ></div>
-                  <div>
-                    <p className="text-[#0d141b] text-base font-medium leading-normal">
-                      QuickPost has revolutionized my social media strategy. The AI-generated posts are incredibly engaging and have significantly boosted my reach.
-                    </p>
-                    <p className="text-[#4c739a] text-sm font-normal leading-normal">Sophia Bennett, Marketing Manager</p>
-                  </div>
-                </div>
-                <div className="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
-                  <div
-                    className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
-                    style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBN5cmOgnSnQgy5aRexcrrsCkrl9-rf8nxHLtovUIXKdfEjx5brI9y7jW_odhMwDyleHXf9W1oCl-cMks9hit5lGeSDsmSLAVlwdTKdqeLybG_buHR7yObYoKQWTZESetNUMmoHkZRyOXFWv0wVnBlNmjNTqf9rbNXXwYk3I0aTLNBzDBHNF1SzR576emrCE7Teb0XK3dxrGLQXmKadNBQ1sG1iLMkCOoIyT4mgc7atfdJEYd2rCu8xmFj_0Fg2dhhpihN2ce3VbVQ")'}}
-                  ></div>
-                  <div>
-                    <p className="text-[#0d141b] text-base font-medium leading-normal">
-                      As a small business owner, QuickPost has been a game-changer. It saves me hours each week and helps me connect with my customers more effectively.
-                    </p>
-                    <p className="text-[#4c739a] text-sm font-normal leading-normal">Ethan Carter, Small Business Owner</p>
-                  </div>
-                </div>
-                <div className="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
-                  <div
-                    className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
-                    style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAMahsdXmKVtKrqwuB8RR9J-NqqURfq2HV2jYhn2urNDs-KLMyYMLV7IG_FKbbB6ax1v4eX3WzGwe0VedPrJ33OxBHwJ3r8btVuzku2h-bPEQZQepy07bdtp7yZH3T1rMuH8EK3VHeeaflMTjtkMVtBsHZNDKWEmi8IR4SDxy4h2C3SEdVbGs0KOp3KmrzRhgYHJgVuPO1d7Kq4xuKLaJMUZi5ZRKfFHMBvsJ9oum-GHuBVhNWl8aRbDe3tBuEF3klOi8K-zB2Qktp")'}}
-                  ></div>
-                  <div>
-                    <p className="text-[#0d141b] text-base font-medium leading-normal">
-                      I love the simplicity and effectiveness of QuickPost. It's the perfect tool for anyone looking to enhance their social media presence.
-                    </p>
-                    <p className="text-[#4c739a] text-sm font-normal leading-normal">Olivia Hayes, Social Media Influencer</p>
-                  </div>
-                </div>
+
+            <div id="pricing" className="flex flex-col gap-10 px-4 py-10 @container scroll-mt-20">
+              <div className="flex flex-col gap-4 text-center">
+                <h1
+                  className="text-[#0d141b] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] mx-auto"
+                >
+                  Pricing Plans
+                </h1>
+                <p className="text-muted-foreground text-base font-normal leading-normal max-w-[720px] mx-auto">
+                  Choose the plan that's right for you and your team.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold">Free</h3>
+                    <p className="text-4xl font-bold my-4">$0<span className="text-sm font-normal text-muted-foreground">/month</span></p>
+                    <p className="text-muted-foreground text-sm mb-6">For individuals and hobbyists.</p>
+                    <ul className="space-y-3 mb-6">
+                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />10 AI Generations</li>
+                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />1 Social Profile</li>
+                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Basic Analytics</li>
+                    </ul>
+                    <Button className="w-full">Get Started</Button>
+                  </CardContent>
+                </Card>
+                <Card className="border-primary">
+                  <CardContent className="p-6">
+                    <div className="flex justify-between items-center">
+                      <h3 className="text-lg font-bold">Pro</h3>
+                      <div className="bg-primary text-primary-foreground text-xs font-semibold px-2 py-1 rounded-full">Most Popular</div>
+                    </div>
+                    <p className="text-4xl font-bold my-4">$19<span className="text-sm font-normal text-muted-foreground">/month</span></p>
+                    <p className="text-muted-foreground text-sm mb-6">For professionals and small teams.</p>
+                     <ul className="space-y-3 mb-6">
+                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Unlimited AI Generations</li>
+                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />5 Social Profiles</li>
+                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Advanced Analytics</li>
+                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Priority Support</li>
+                    </ul>
+                    <Button className="w-full">Get Started</Button>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold">Enterprise</h3>
+                    <p className="text-4xl font-bold my-4">$49<span className="text-sm font-normal text-muted-foreground">/month</span></p>
+                    <p className="text-muted-foreground text-sm mb-6">For large organizations.</p>
+                     <ul className="space-y-3 mb-6">
+                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Unlimited AI Generations</li>
+                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Unlimited Social Profiles</li>
+                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Advanced Analytics & Reporting</li>
+                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Dedicated Account Manager</li>
+                    </ul>
+                    <Button className="w-full">Get Started</Button>
+                  </CardContent>
+                </Card>
               </div>
             </div>
+
+            <div id="testimonials" className="scroll-mt-20">
+                <h2 className="text-[#0d141b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">What Our Users Say</h2>
+                <div className="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <div className="flex items-stretch p-4 gap-3">
+                    <div className="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                    <div
+                        className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
+                        style={{backgroundImage: 'url("https://picsum.photos/400/400?1")'}}
+                        data-ai-hint="person portrait"
+                    ></div>
+                    <div>
+                        <p className="text-[#0d141b] text-base font-medium leading-normal">
+                        QuickPost has revolutionized my social media strategy. The AI-generated posts are incredibly engaging and have significantly boosted my reach.
+                        </p>
+                        <p className="text-[#4c739a] text-sm font-normal leading-normal">Sophia Bennett, Marketing Manager</p>
+                    </div>
+                    </div>
+                    <div className="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                    <div
+                        className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
+                         style={{backgroundImage: 'url("https://picsum.photos/400/400?2")'}}
+                         data-ai-hint="person portrait"
+                    ></div>
+                    <div>
+                        <p className="text-[#0d141b] text-base font-medium leading-normal">
+                        As a small business owner, QuickPost has been a game-changer. It saves me hours each week and helps me connect with my customers more effectively.
+                        </p>
+                        <p className="text-[#4c739a] text-sm font-normal leading-normal">Ethan Carter, Small Business Owner</p>
+                    </div>
+                    </div>
+                    <div className="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                    <div
+                        className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
+                         style={{backgroundImage: 'url("https://picsum.photos/400/400?3")'}}
+                         data-ai-hint="person portrait"
+                    ></div>
+                    <div>
+                        <p className="text-[#0d141b] text-base font-medium leading-normal">
+                        I love the simplicity and effectiveness of QuickPost. It's the perfect tool for anyone looking to enhance their social media presence.
+                        </p>
+                        <p className="text-[#4c739a] text-sm font-normal leading-normal">Olivia Hayes, Social Media Influencer</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+             <div id="faq" className="flex flex-col gap-10 px-4 py-10 @container scroll-mt-20">
+                <div className="flex flex-col gap-4 text-center">
+                    <h1
+                    className="text-[#0d141b] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] mx-auto"
+                    >
+                    Frequently Asked Questions
+                    </h1>
+                </div>
+                <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
+                    <AccordionItem value="item-1">
+                        <AccordionTrigger>What is QuickPost?</AccordionTrigger>
+                        <AccordionContent>
+                        QuickPost is an AI-powered social media management tool designed to help you create, schedule, and analyze your social media content effortlessly.
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2">
+                        <AccordionTrigger>What platforms do you support?</AccordionTrigger>
+                        <AccordionContent>
+                        We support all major social media platforms including Instagram, X (formerly Twitter), Facebook, LinkedIn, TikTok, and Pinterest.
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-3">
+                        <AccordionTrigger>Can I cancel my subscription at any time?</AccordionTrigger>
+                        <AccordionContent>
+                        Yes, you can cancel your subscription at any time. You will continue to have access to your plan's features until the end of your billing cycle.
+                        </AccordionContent>
+                    </AccordionItem>
+                     <AccordionItem value="item-4">
+                        <AccordionTrigger>Do you offer a free trial?</AccordionTrigger>
+                        <AccordionContent>
+                        We offer a free plan with limited features so you can try out QuickPost. No credit card is required to sign up for the free plan.
+                        </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
+            </div>
+
             <div className="@container">
               <div className="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20">
                 <div className="flex flex-col gap-2 text-center">
@@ -187,7 +304,7 @@ export default function LandingPage() {
                   <div className="flex justify-center">
                     <Link href="/dashboard">
                       <button
-                        className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#1380ec] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] grow"
+                        className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-primary-foreground text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] grow"
                       >
                         <span className="truncate">Get Started</span>
                       </button>
@@ -198,13 +315,19 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-        <footer className="flex justify-center">
+        <footer className="flex justify-center border-t">
           <div className="flex max-w-[960px] flex-1 flex-col">
             <footer className="flex flex-col gap-6 px-5 py-10 text-center @container">
               <div className="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
+                <a className="text-[#4c739a] text-base font-normal leading-normal min-w-40" href="#features">Features</a>
+                <a className="text-[#4c739a] text-base font-normal leading-normal min-w-40" href="#pricing">Pricing</a>
+                <a className="text-[#4c739a] text-base font-normal leading-normal min-w-40" href="#">Contact Us</a>
                 <a className="text-[#4c739a] text-base font-normal leading-normal min-w-40" href="#">Terms of Service</a>
                 <a className="text-[#4c739a] text-base font-normal leading-normal min-w-40" href="#">Privacy Policy</a>
-                <a className="text-[#4c739a] text-base font-normal leading-normal min-w-40" href="#">Contact Us</a>
+              </div>
+               <div className="flex justify-center items-center gap-4 text-[#0d141b]">
+                <Logo />
+                <h2 className="text-[#0d141b] text-lg font-bold leading-tight tracking-[-0.015em]">QuickPost</h2>
               </div>
               <p className="text-[#4c739a] text-base font-normal leading-normal">© 2024 QuickPost. All rights reserved.</p>
             </footer>
@@ -214,5 +337,3 @@ export default function LandingPage() {
     </div>
   );
 }
-
-    
