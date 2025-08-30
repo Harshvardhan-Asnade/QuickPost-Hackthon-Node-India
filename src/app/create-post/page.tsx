@@ -32,6 +32,7 @@ import {
 import { Input } from "@/components/ui/input"
 
 const formSchema = z.object({
+  description: z.string().min(1, 'A description is required.'),
   platform: z.enum(['instagram', 'x', 'linkedin', 'facebook', 'tiktok', 'pinterest']),
   postType: z.enum(['promo', 'announcement', 'quote', 'story', 'meme', 'question']),
   tone: z.enum(['friendly', 'professional', 'funny', 'inspirational', 'persuasive']),
@@ -62,6 +63,7 @@ export default function CreatePostPage() {
   const form = useForm<PostGenerationRequest>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      description: '',
       platform: 'x',
       postType: 'promo',
       tone: 'friendly',
@@ -108,6 +110,23 @@ export default function CreatePostPage() {
           
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Post Content</FormLabel>
+                    <FormControl>
+                      <Textarea placeholder="Tell me what you want to post about..." {...field} className="h-32"/>
+                    </FormControl>
+                    <FormDescription>
+                      This is the main content for your post.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
@@ -316,5 +335,4 @@ export default function CreatePostPage() {
     </div>
   )
 }
-
     
