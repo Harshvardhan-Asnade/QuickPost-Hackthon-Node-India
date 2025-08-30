@@ -1,11 +1,11 @@
+
 import type { Metadata } from "next";
-import { Caveat } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const caveat = Caveat({
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '700'],
 });
 
 
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${caveat.className}`}>{children}</body>
+      <body className={`${inter.className}`}>{children}</body>
     </html>
   );
 }
