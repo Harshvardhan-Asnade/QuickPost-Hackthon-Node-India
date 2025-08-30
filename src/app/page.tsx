@@ -62,7 +62,6 @@ export default function LandingPage() {
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
             <Link href="#features" className="hover:text-primary">Features</Link>
-            <Link href="#pricing" className="hover:text-primary">Pricing</Link>
             <Link href="#testimonials" className="hover:text-primary">Testimonials</Link>
              <Link href="#faq" className="hover:text-primary">FAQ</Link>
           </nav>
@@ -143,65 +142,6 @@ export default function LandingPage() {
                     <p className="text-muted-foreground text-sm font-normal leading-normal">Streamline your social media workflow with automated scheduling and content planning features.</p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div id="pricing" className="flex flex-col gap-10 px-4 py-10 @container scroll-mt-20">
-              <div className="flex flex-col gap-4 text-center">
-                <h1
-                  className="text-[#0d141b] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] mx-auto"
-                >
-                  Pricing Plans
-                </h1>
-                <p className="text-muted-foreground text-base font-normal leading-normal max-w-[720px] mx-auto">
-                  Choose the plan that's right for you and your team.
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold">Free</h3>
-                    <p className="text-4xl font-bold my-4">$0<span className="text-sm font-normal text-muted-foreground">/month</span></p>
-                    <p className="text-muted-foreground text-sm mb-6">For individuals and hobbyists.</p>
-                    <ul className="space-y-3 mb-6">
-                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />10 AI Generations</li>
-                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />1 Social Profile</li>
-                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Basic Analytics</li>
-                    </ul>
-                    <Button className="w-full">Get Started</Button>
-                  </CardContent>
-                </Card>
-                <Card className="border-primary">
-                  <CardContent className="p-6">
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-lg font-bold">Pro</h3>
-                      <div className="bg-primary text-primary-foreground text-xs font-semibold px-2 py-1 rounded-full">Most Popular</div>
-                    </div>
-                    <p className="text-4xl font-bold my-4">$19<span className="text-sm font-normal text-muted-foreground">/month</span></p>
-                    <p className="text-muted-foreground text-sm mb-6">For professionals and small teams.</p>
-                     <ul className="space-y-3 mb-6">
-                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Unlimited AI Generations</li>
-                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />5 Social Profiles</li>
-                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Advanced Analytics</li>
-                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Priority Support</li>
-                    </ul>
-                    <Button className="w-full">Get Started</Button>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold">Enterprise</h3>
-                    <p className="text-4xl font-bold my-4">$49<span className="text-sm font-normal text-muted-foreground">/month</span></p>
-                    <p className="text-muted-foreground text-sm mb-6">For large organizations.</p>
-                     <ul className="space-y-3 mb-6">
-                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Unlimited AI Generations</li>
-                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Unlimited Social Profiles</li>
-                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Advanced Analytics & Reporting</li>
-                        <li className="flex items-center gap-2"><Check className="size-4 text-primary" />Dedicated Account Manager</li>
-                    </ul>
-                    <Button className="w-full">Get Started</Button>
-                  </CardContent>
-                </Card>
               </div>
             </div>
 
@@ -320,7 +260,6 @@ export default function LandingPage() {
             <footer className="flex flex-col gap-6 px-5 py-10 text-center @container">
               <div className="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
                 <a className="text-[#4c739a] text-base font-normal leading-normal min-w-40" href="#features">Features</a>
-                <a className="text-[#4c739a] text-base font-normal leading-normal min-w-40" href="#pricing">Pricing</a>
                 <a className="text-[#4c739a] text-base font-normal leading-normal min-w-40" href="#">Contact Us</a>
                 <a className="text-[#4c739a] text-base font-normal leading-normal min-w-40" href="#">Terms of Service</a>
                 <a className="text-[#4c739a] text-base font-normal leading-normal min-w-40" href="#">Privacy Policy</a>
