@@ -1,4 +1,7 @@
+
+'use client';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const Logo = () => (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-4">
@@ -17,7 +20,12 @@ const Logo = () => (
 
 export default function FeaturesPage() {
     return (
-        <div className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden">
+        <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden"
+        >
         <div className="layout-container flex h-full grow flex-col">
           <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] px-10 py-3 sticky top-0 bg-slate-50/80 backdrop-blur-lg z-20">
             <div className="flex items-center gap-4 text-[#0d141b] flex-1">
@@ -65,6 +73,6 @@ export default function FeaturesPage() {
           </div>
         </footer>
         </div>
-      </div>
+      </motion.div>
     )
 }

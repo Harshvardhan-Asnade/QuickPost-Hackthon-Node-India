@@ -1,4 +1,5 @@
 
+'use client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
@@ -10,6 +11,8 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Check } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 
 const Logo = () => (
@@ -50,7 +53,23 @@ const Clock = () => (
         ></path>
     </svg>
 )
-
+const AnimatedSection = ({ children }: { children: React.ReactNode }) => {
+    const { ref, inView } = useInView({
+      triggerOnce: true,
+      threshold: 0.1,
+    });
+  
+    return (
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        {children}
+      </motion.div>
+    );
+  };
 export default function LandingPage() {
   return (
     <div className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden">
@@ -79,6 +98,7 @@ export default function LandingPage() {
           <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
             <div className="@container">
               <div className="@[480px]:p-4">
+              <AnimatedSection>
                 <div
                   className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-6 text-center"
                   style={{backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://picsum.photos/1200/800")'}}
@@ -102,8 +122,10 @@ export default function LandingPage() {
                     </button>
                   </Link>
                 </div>
+                </AnimatedSection>
               </div>
             </div>
+            <AnimatedSection>
             <div id="features" className="flex flex-col gap-10 px-4 py-10 @container scroll-mt-20">
               <div className="flex flex-col gap-4">
                 <h1
@@ -144,7 +166,8 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-
+            </AnimatedSection>
+            <AnimatedSection>
             <div id="testimonials" className="scroll-mt-20">
                 <h2 className="text-[#0d141b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">What Our Users Say</h2>
                 <div className="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -191,7 +214,8 @@ export default function LandingPage() {
                 </div>
                 </div>
             </div>
-
+            </AnimatedSection>
+            <AnimatedSection>
              <div id="faq" className="flex flex-col gap-10 px-4 py-10 @container scroll-mt-20">
                 <div className="flex flex-col gap-4 text-center">
                     <h1
@@ -227,7 +251,8 @@ export default function LandingPage() {
                     </AccordionItem>
                 </Accordion>
             </div>
-
+            </AnimatedSection>
+            <AnimatedSection>
             <div className="@container">
               <div className="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20">
                 <div className="flex flex-col gap-2 text-center">
@@ -253,6 +278,7 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
+            </AnimatedSection>
           </div>
         </div>
         <footer className="flex justify-center border-t">
