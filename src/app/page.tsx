@@ -51,7 +51,7 @@ export default function LandingPage() {
         <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] px-10 py-3">
           <div className="flex items-center gap-4 text-[#0d141b]">
             <Logo />
-            <h2 className="text-[#0d141b] text-lg font-bold leading-tight tracking-[-0.015em]">PostCraft</h2>
+            <h2 className="text-[#0d141b] text-lg font-bold leading-tight tracking-[-0.015em]">QuickPost</h2>
           </div>
           <div className="flex flex-1 justify-end">
             <Link href="/dashboard">
@@ -78,7 +78,7 @@ export default function LandingPage() {
                       Craft Captivating Social Posts in Minutes
                     </h1>
                     <h2 className="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                      Elevate your social media presence with PostCraft. Generate engaging content effortlessly and connect with your audience like never before.
+                      Elevate your social media presence with QuickPost. Generate engaging content effortlessly and connect with your audience like never before.
                     </h2>
                   </div>
                   <Link href="/dashboard">
@@ -99,7 +99,7 @@ export default function LandingPage() {
                   Unlock the Power of Effortless Social Media Management
                 </h1>
                 <p className="text-[#0d141b] text-base font-normal leading-normal max-w-[720px]">
-                  PostCraft empowers you to create impactful social media content with ease and precision. Our intuitive tools and AI-driven features streamline your workflow,
+                  QuickPost empowers you to create impactful social media content with ease and precision. Our intuitive tools and AI-driven features streamline your workflow,
                   ensuring your message resonates with your audience.
                 </p>
               </div>
@@ -141,7 +141,7 @@ export default function LandingPage() {
                   ></div>
                   <div>
                     <p className="text-[#0d141b] text-base font-medium leading-normal">
-                      PostCraft has revolutionized my social media strategy. The AI-generated posts are incredibly engaging and have significantly boosted my reach.
+                      QuickPost has revolutionized my social media strategy. The AI-generated posts are incredibly engaging and have significantly boosted my reach.
                     </p>
                     <p className="text-[#4c739a] text-sm font-normal leading-normal">Sophia Bennett, Marketing Manager</p>
                   </div>
@@ -153,7 +153,7 @@ export default function LandingPage() {
                   ></div>
                   <div>
                     <p className="text-[#0d141b] text-base font-medium leading-normal">
-                      As a small business owner, PostCraft has been a game-changer. It saves me hours each week and helps me connect with my customers more effectively.
+                      As a small business owner, QuickPost has been a game-changer. It saves me hours each week and helps me connect with my customers more effectively.
                     </p>
                     <p className="text-[#4c739a] text-sm font-normal leading-normal">Ethan Carter, Small Business Owner</p>
                   </div>
@@ -165,7 +165,7 @@ export default function LandingPage() {
                   ></div>
                   <div>
                     <p className="text-[#0d141b] text-base font-medium leading-normal">
-                      I love the simplicity and effectiveness of PostCraft. It's the perfect tool for anyone looking to enhance their social media presence.
+                      I love the simplicity and effectiveness of QuickPost. It's the perfect tool for anyone looking to enhance their social media presence.
                     </p>
                     <p className="text-[#4c739a] text-sm font-normal leading-normal">Olivia Hayes, Social Media Influencer</p>
                   </div>
@@ -181,7 +181,7 @@ export default function LandingPage() {
                     Ready to Transform Your Social Media Presence?
                   </h1>
                   <p className="text-[#0d141b] text-base font-normal leading-normal max-w-[720px] mx-auto">
-                    Join thousands of satisfied users and experience the power of PostCraft. Sign up today and start creating captivating social media content in minutes.
+                    Join thousands of satisfied users and experience the power of QuickPost. Sign up today and start creating captivating social media content in minutes.
                   </p>
                 </div>
                 <div className="flex flex-1 justify-center">
@@ -207,7 +207,7 @@ export default function LandingPage() {
                 <a className="text-[#4c739a] text-base font-normal leading-normal min-w-40" href="#">Privacy Policy</a>
                 <a className="text-[#4c739a] text-base font-normal leading-normal min-w-40" href="#">Contact Us</a>
               </div>
-              <p className="text-[#4c739a] text-base font-normal leading-normal">© 2024 PostCraft. All rights reserved.</p>
+              <p className="text-[#4c739a] text-base font-normal leading-normal">© 2024 QuickPost. All rights reserved.</p>
             </footer>
           </div>
         </footer>

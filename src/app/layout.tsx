@@ -15,8 +15,8 @@ const plus_jakarta_sans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "PostCraft",
-  description: "Craft captivating social posts in minutes.",
+  title: "QuickPost",
+  description: "Create quality posts in seconds.",
 };
 
 export default function RootLayout({
