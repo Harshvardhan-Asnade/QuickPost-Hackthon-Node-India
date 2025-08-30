@@ -81,17 +81,17 @@ export default function LandingPage() {
             <div className="@container">
               <div className="@[480px]:p-4">
                 <div
-                  className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
-                  style={{backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://picsum.photos/1200/800")'}}
+                  className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-6 text-center"
+                  style={{backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://picsum.photos/1200/800")'}}
                   data-ai-hint="social media hero"
                 >
-                  <div className="flex flex-col gap-2 text-center">
+                  <div className="flex flex-col gap-2">
                     <h1
-                      className="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                      className="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl"
                     >
                       Craft Captivating Social Posts in Minutes
                     </h1>
-                    <h2 className="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                    <h2 className="text-white/90 text-sm font-normal leading-normal @[480px]:text-base max-w-2xl">
                       Elevate your social media presence with QuickPost. Generate engaging content effortlessly and connect with your audience like never before.
                     </h2>
                   </div>
