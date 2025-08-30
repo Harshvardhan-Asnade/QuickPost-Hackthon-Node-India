@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Noto_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const noto_sans = Noto_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '700', '900'],
+});
+
+const plus_jakarta_sans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '700', '800'],
+});
 
 export const metadata: Metadata = {
   title: "PostCraft",
@@ -16,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${plus_jakarta_sans.className} ${noto_sans.className}`}>{children}</body>
     </html>
   );
 }

@@ -10,9 +10,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['"PT Sans"', 'sans-serif'],
-        headline: ['"PT Sans"', 'sans-serif'],
-        code: ['monospace'],
+        sans: ['"Plus Jakarta Sans"', '"Noto Sans"', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -95,5 +93,5 @@ export default {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/container-queries')],
 } satisfies Config;
