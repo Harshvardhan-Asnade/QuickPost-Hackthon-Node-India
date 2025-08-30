@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MagicWandIcon, TargetIcon, ClockIcon } from '@radix-ui/react-icons';
 
 const Logo = () => (
   <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-4">
@@ -215,3 +214,5 @@ export default function LandingPage() {
     </div>
   );
 }
+
+    
