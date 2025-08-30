@@ -1,3 +1,4 @@
+
 'use client';
 import {
   Home,
@@ -43,7 +44,9 @@ const Sidebar = () => {
         ))}
       </nav>
       <div className="p-4">
-        <Button className="w-full">Create New Post</Button>
+        <Link href="/dashboard/create-post">
+          <Button className="w-full">Create New Post</Button>
+        </Link>
       </div>
     </div>
   );
