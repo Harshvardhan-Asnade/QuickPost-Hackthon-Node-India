@@ -35,19 +35,41 @@ export default function CreatePostPage() {
   const [postType, setPostType] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
+  const [generatedPost, setGeneratedPost] = useState('');
 
-  const handleGenerate = (e: React.FormEvent) => {
+  const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!platform || !postContent) {
-      // Maybe show a toast notification here
+      // TODO: Show a toast notification here
       return;
     }
     setIsLoading(true);
-    // Simulate AI generation
-    setTimeout(() => {
+    setGeneratedPost(''); // Clear previous generation
+
+    try {
+      const prompt = `Generate a ${postType || 'general'} post for ${platform} with a ${tone || 'neutral'} tone, using keywords: ${keywords || 'none'}. The main content is: "${postContent}".`;
+      
+      const response = await fetch('/api/generate-post', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: prompt }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setGeneratedPost(data.message);
       setShowPreview(true);
+    } catch (error) {
+      console.error('Error generating post:', error);
+      // TODO: Show error toast
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   const handlePlatformChange = (value: string) => {
@@ -184,7 +206,7 @@ export default function CreatePostPage() {
                 ) : showPreview && platform ? (
                     <PlatformPreview 
                         platform={platform} 
-                        content={postContent} 
+                        content={generatedPost || postContent} 
                         author="QuickPost" 
                         avatarSrc="https://i.pravatar.cc/150?u=a042581f4e29026704d"
                     />
@@ -200,5 +222,3 @@ export default function CreatePostPage() {
     </div>
   );
 }
-
-    
